@@ -24,9 +24,17 @@ describe('ColorPicker', () => {
         )
       })
     })
+
     it('sets the first swatch as the selected one by default', () => {
       const firstSwatch = wrapper.find('.swatch')
       expect(firstSwatch.classes()).toContain('active')
+    })
+
+    it('makes the swatch active when clicked', async () => {
+      const targetSwatch = wrapper.findAll('.swatch').at(2)
+      await targetSwatch.trigger('click')
+      // console.log('targetSwatch >>>>> ', targetSwatch.classes())
+      expect(targetSwatch.classes()).toContain('active')
     })
   })
 })

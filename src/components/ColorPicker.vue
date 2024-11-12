@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-
+import Checkmark from '@/assets/checkmark.svg'
 defineProps({
   swatches: {
     type: Array,
@@ -19,7 +19,10 @@ const activeIndex = ref(0)
         class="swatch"
         :style="{ background: `#${swatch}` }"
         :class="{ active: index === activeIndex }"
-      />
+        @click="activeIndex = index"
+      >
+        <Checkmark />
+      </li>
     </ul>
   </div>
 </template>
