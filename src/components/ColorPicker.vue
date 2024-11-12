@@ -9,6 +9,7 @@ defineProps({
 })
 
 const activeIndex = ref(0)
+const colorModes = ref(['hex', 'rgb', 'hsl'])
 </script>
 <template>
   <div class="color-picker">
@@ -24,6 +25,17 @@ const activeIndex = ref(0)
         <Checkmark />
       </li>
     </ul>
+
+    <div class="color-modes">
+      <button
+        v-for="(mode, index) in colorModes"
+        :key="index"
+        class="color-mode"
+        :class="`color-mode-${mode}`"
+      >
+        {{ mode }}
+      </button>
+    </div>
   </div>
 </template>
 

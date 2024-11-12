@@ -37,4 +37,15 @@ describe('ColorPicker', () => {
       expect(targetSwatch.classes()).toContain('active')
     })
   })
+
+  describe('Color model', () => {
+    it('displays each mode as an individual button', () => {
+      const buttons=wrapper.findAll('.color-mode')
+      buttons.forEach((button) => {
+        expect(button.classes()).toEqual(
+          expect.arrayContaining([expect.stringMatching(/color-mode-\w{1,}/)])
+        )
+      })
+    })
+  })
 })
