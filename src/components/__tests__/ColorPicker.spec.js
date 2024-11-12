@@ -20,9 +20,13 @@ describe('ColorPicker', () => {
       const swatches = wrapper.findAll('.swatch')
       propsData.swatches.forEach((swatch, index) => {
         expect(swatches.at(index).attributes().style).toBe(
-          `background:rgb(${convert.hex.rgb(swatch).join(', ')});`,
+          `background: rgb(${convert.hex.rgb(swatch).join(', ')});`,
         )
       })
+    })
+    it('sets the first swatch as the selected one by default', () => {
+      const firstSwatch = wrapper.find('.swatch')
+      expect(firstSwatch.classes()).toContain('active')
     })
   })
 })
