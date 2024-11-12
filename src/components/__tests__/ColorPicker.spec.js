@@ -19,8 +19,8 @@ describe('ColorPicker', () => {
     it('displays each color as an individual swatch', () => {
       const swatches = wrapper.findAll('.swatch')
       propsData.swatches.forEach((swatch, index) => {
-        expect(swatches[index].attributes('style')).toContain(
-          `background: rgb(${convert.hex.rgb(swatch).join(', ')})`,
+        expect(swatches.at(index).attributes().style).toBe(
+          `background:rgb(${convert.hex.rgb(swatch).join(', ')});`,
         )
       })
     })
