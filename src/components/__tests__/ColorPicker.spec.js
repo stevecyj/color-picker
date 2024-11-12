@@ -47,5 +47,10 @@ describe('ColorPicker', () => {
         )
       })
     })
+
+    it('sets the first mode as the selected one by default', () => {
+      const firstButton = wrapper.find('.color-mode')
+      expect(firstButton.classes()).toContain('active')
+    })
   })
 })

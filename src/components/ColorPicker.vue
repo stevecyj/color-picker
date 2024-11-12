@@ -9,6 +9,7 @@ defineProps({
 })
 
 const activeIndex = ref(0)
+const activeMode = ref(0)
 const colorModes = ref(['hex', 'rgb', 'hsl'])
 </script>
 <template>
@@ -31,7 +32,7 @@ const colorModes = ref(['hex', 'rgb', 'hsl'])
         v-for="(mode, index) in colorModes"
         :key="index"
         class="color-mode"
-        :class="`color-mode-${mode}`"
+        :class="[`color-mode-${mode}`, { active: index === activeMode }]"
       >
         {{ mode }}
       </button>
