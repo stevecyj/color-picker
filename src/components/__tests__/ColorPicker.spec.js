@@ -52,5 +52,11 @@ describe('ColorPicker', () => {
       const firstButton = wrapper.find('.color-mode')
       expect(firstButton.classes()).toContain('active')
     })
+
+    it('sets the color mode button as active when clicked', async () => {
+      const targetButton = wrapper.findAll('.color-mode').at(2)
+      await targetButton.trigger('click')
+      expect(targetButton.classes()).toContain('active')
+    })
   })
 })

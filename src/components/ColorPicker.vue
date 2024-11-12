@@ -33,6 +33,7 @@ const colorModes = ref(['hex', 'rgb', 'hsl'])
         :key="index"
         class="color-mode"
         :class="[`color-mode-${mode}`, { active: index === activeMode }]"
+        @click="activeMode = index"
       >
         {{ mode }}
       </button>
