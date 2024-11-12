@@ -1,10 +1,14 @@
 <script setup>
+import { ref } from 'vue'
+
 defineProps({
   swatches: {
     type: Array,
     required: true,
   },
 })
+
+const activeIndex = ref(0)
 </script>
 <template>
   <div class="color-picker">
@@ -14,7 +18,7 @@ defineProps({
         :key="index"
         class="swatch"
         :style="{ background: `#${swatch}` }"
-        :class="{ active: index === 0 }"
+        :class="{ active: index === activeIndex }"
       />
     </ul>
   </div>
