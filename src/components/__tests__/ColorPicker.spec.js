@@ -40,10 +40,10 @@ describe('ColorPicker', () => {
 
   describe('Color model', () => {
     it('displays each mode as an individual button', () => {
-      const buttons=wrapper.findAll('.color-mode')
+      const buttons = wrapper.findAll('.color-mode')
       buttons.forEach((button) => {
         expect(button.classes()).toEqual(
-          expect.arrayContaining([expect.stringMatching(/color-mode-\w{1,}/)])
+          expect.arrayContaining([expect.stringMatching(/color-mode-\w{1,}/)]),
         )
       })
     })
@@ -57,6 +57,13 @@ describe('ColorPicker', () => {
       const targetButton = wrapper.findAll('.color-mode').at(2)
       await targetButton.trigger('click')
       expect(targetButton.classes()).toContain('active')
+    })
+  })
+
+  describe('Color code', () => {
+    it('displays the default swatch in the default mode', () => {
+      const colorCode = wrapper.find('.color-code')
+      expect(colorCode.text()).toBe(`#e3342f`)
     })
   })
 })
