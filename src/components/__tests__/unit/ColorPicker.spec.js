@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import ColorPicker from '../ColorPicker.vue'
+import ColorPicker from '@/components/ColorPicker.vue'
 import convert from 'color-convert'
 
 let wrapper = null

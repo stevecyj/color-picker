@@ -35,13 +35,13 @@ const hex = computed(() => {
 })
 
 const hsl = computed(() => {
-  const hsl = convert.hex.hsl(activeColorValue.value)
-  return `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`
+  const hslColor = convert.hex.hsl(activeColorValue.value)
+  return `${hslColor[0]}, ${hslColor[1]}%, ${hslColor[2]}%`
 })
 
 const rgb = computed(() => {
-  const rgb = convert.hex.rgb(activeColorValue.value)
-  return `rgb(${rgb.join(', ')})`
+  const rgbColor = convert.hex.rgb(activeColorValue.value)
+  return `${rgbColor.join(', ')}`
 })
 </script>
 <template>
