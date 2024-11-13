@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
-import convert from 'color-convert'
+// import convert from 'color-convert'
+import { rgb, hex, hsl } from '@/utils/color'
 import Checkmark from '@/assets/checkmark.svg'
 const props = defineProps({
   swatches: {
@@ -12,36 +13,11 @@ const props = defineProps({
 const activeIndex = ref(0)
 const activeMode = ref(0)
 const colorModes = ref(['hex', 'rgb', 'hsl'])
-
+const modes = { hex, rgb, hsl }
 const activeCode = computed(() => {
-  return activeModeValue.value === 'hex'
-    ? hex.value
-    : activeModeValue.value === 'rgb'
-      ? rgb.value
-      : hsl.value
-})
-// console.log('activeCode >>> ', activeCode.value)
-
-const activeColorValue = computed(() => {
-  return props.swatches[activeIndex.value]
-})
-
-const activeModeValue = computed(() => {
-  return colorModes.value[activeMode.value]
-})
-
-const hex = computed(() => {
-  return `#${activeColorValue.value}`
-})
-
-const hsl = computed(() => {
-  const hslColor = convert.hex.hsl(activeColorValue.value)
-  return `${hslColor[0]}, ${hslColor[1]}%, ${hslColor[2]}%`
-})
-
-const rgb = computed(() => {
-  const rgbColor = convert.hex.rgb(activeColorValue.value)
-  return `${rgbColor.join(', ')}`
+  const activeColor = props.swatches[activeIndex.value]
+  const currentMode = colorModes.value[activeMode.value]
+  return modes[currentMode](activeColor)
 })
 </script>
 <template>
