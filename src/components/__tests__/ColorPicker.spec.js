@@ -63,7 +63,16 @@ describe('ColorPicker', () => {
   describe('Color code', () => {
     it('displays the default swatch in the default mode', () => {
       const colorCode = wrapper.find('.color-code')
-      expect(colorCode.text()).toBe(`#e3342f`)
+      expect(colorCode.text()).toEqual(`#e3342f`)
+    })
+
+    it.skip('displays the code in the right mode when changing mode', async () => {
+      await wrapper.find('.color-mode').trigger('click')
+      await wrapper.vm.$nextTick()
+      const colorCode = wrapper.find('.color-code-hsl')
+      expect(colorCode.text()).toEqual(
+        ('2%, 76, 54')
+      )
     })
   })
 })
