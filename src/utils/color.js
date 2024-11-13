@@ -1,4 +1,11 @@
 import convert from 'color-convert'
-export const rgb = () => '227, 52, 47'
-export const hex = () => '#e3342f'
-export const hsl = () => '2, 76%, 54%'
+
+export const rgb = (color) => {
+  const rgbColor = convert.hex.rgb(color)
+  return `${rgbColor.join(', ')}`
+}
+export const hex = (color) => `#${color}`
+export const hsl = (color) => {
+  const hslColor = convert.hex.hsl(color)
+  return `${hslColor[0]}, ${hslColor[1]}%, ${hslColor[2]}%`
+}

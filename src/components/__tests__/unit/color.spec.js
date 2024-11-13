@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { rgb, hex, hsl } from '@/utils/color'
+
 const color = 'e3342f'
 
 describe('color', () => {
