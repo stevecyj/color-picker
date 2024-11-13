@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import convert from 'color-convert'
 import Checkmark from '@/assets/checkmark.svg'
 const props = defineProps({
   swatches: {
@@ -13,7 +14,29 @@ const activeMode = ref(0)
 const colorModes = ref(['hex', 'rgb', 'hsl'])
 
 const activeCode = computed(() => {
-  return `#${props.swatches[activeIndex.value]}`
+  return activeModeValue.value
+})
+
+const activeColorValue = computed(() => {
+  return props.swatches[activeIndex.value]
+})
+
+const activeModeValue = computed(() => {
+  return colorModes[activeMode.value]
+})
+
+const hex = computed(() => {
+  return `#${activeColorValue.value}`
+})
+
+const hsl = computed(() => {
+  const hsl = convert.hex.hsl(activeColorValue.value)
+  return `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`
+})
+
+const rgb = computed(() => {
+  const rgb = convert.hex.rgb(activeColorValue.value)
+  return `rgb(${rgb.join(', ')})`
 })
 </script>
 <template>
@@ -43,7 +66,7 @@ const activeCode = computed(() => {
       </button>
     </div>
 
-    <div class="color-code">{{ activeCode }}</div>
+    <div class="color-code">{{ hex }}</div>
   </div>
 </template>
 
