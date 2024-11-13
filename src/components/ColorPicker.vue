@@ -14,15 +14,20 @@ const activeMode = ref(0)
 const colorModes = ref(['hex', 'rgb', 'hsl'])
 
 const activeCode = computed(() => {
-  return activeModeValue.value
+  return activeModeValue.value === 'hex'
+    ? hex.value
+    : activeModeValue.value === 'rgb'
+      ? rgb.value
+      : hsl.value
 })
+// console.log('activeCode >>> ', activeCode.value)
 
 const activeColorValue = computed(() => {
   return props.swatches[activeIndex.value]
 })
 
 const activeModeValue = computed(() => {
-  return colorModes[activeMode.value]
+  return colorModes.value[activeMode.value]
 })
 
 const hex = computed(() => {
@@ -66,7 +71,7 @@ const rgb = computed(() => {
       </button>
     </div>
 
-    <div class="color-code">{{ hex }}</div>
+    <div class="color-code">{{ activeCode }}</div>
   </div>
 </template>
 
