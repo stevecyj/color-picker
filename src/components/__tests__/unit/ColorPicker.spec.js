@@ -72,5 +72,12 @@ describe('ColorPicker', () => {
       const colorCode = wrapper.find('.color-code')
       expect(colorCode.text()).toEqual('2, 76%, 54%')
     })
+
+    it('displays the code in the right color when changing color', async () => {
+      await wrapper.findAll('.swatch').at(2).trigger('click')
+      await wrapper.vm.$nextTick()
+      const colorCode = wrapper.find('.color-code')
+      expect(colorCode.text()).toEqual('#f6993f')
+    })
   })
 })
