@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-// import convert from 'color-convert'
-import { hex, rgb, hsl } from '@/utils/color'
+import { hex, rgb, hsl, isLight } from '@/utils/color'
 import Checkmark from '@/assets/checkmark.svg'
 const props = defineProps({
   swatches: {
@@ -28,7 +27,7 @@ const activeCode = computed(() => {
         :key="index"
         class="swatch"
         :style="{ background: `#${swatch}` }"
-        :class="{ active: index === activeIndex }"
+        :class="[{ active: index === activeIndex }, { light: isLight(swatch) }]"
         @click="activeIndex = index"
       >
         <Checkmark />
@@ -111,6 +110,10 @@ ul {
 
 .swatch.active svg {
   display: block;
+}
+
+.swatch.light svg {
+  color: #606f7b;
 }
 
 .color-modes {
