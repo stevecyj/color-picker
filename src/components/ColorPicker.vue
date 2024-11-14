@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 // import convert from 'color-convert'
-import { rgb, hex, hsl } from '@/utils/color'
+import { hex, rgb, hsl } from '@/utils/color'
 import Checkmark from '@/assets/checkmark.svg'
 const props = defineProps({
   swatches: {
@@ -51,4 +51,10 @@ const activeCode = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ul {
+  list-style-type: none; /* 移除項目符號 */
+  padding: 0; /* 移除內邊距 */
+  margin: 0; /* 移除外邊距 */
+}
+</style>
