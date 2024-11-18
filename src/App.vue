@@ -1,12 +1,16 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import ColorPicker from '@/components/ColorPicker.vue'
 import SearchInput from '@/components/SearchInput.vue'
+
+const inputValue = ref('search input test')
 </script>
 
 <template>
   <ColorPicker :swatches="['e3342f', '3490dc', 'f6993f', '38c172', 'fff']" />
-  <SearchInput />
+  <SearchInput v-model="inputValue" />
+  <div style="color: aliceblue">{{ inputValue }}</div>
   <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
