@@ -15,4 +15,15 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  test: {
+    // environment: 'edge-runtime',
+    environment: 'happy-dom',
+    // environment: 'jsdom',
+    server: {
+      deps: {
+        // 添加这个配置解决：TypeError: Unknown file extension ".css" 错误
+        inline: ['element-plus'],
+      },
+    },
+  },
 })
