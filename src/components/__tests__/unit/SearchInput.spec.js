@@ -38,4 +38,10 @@ describe('Search Input', () => {
     await inputEle.setValue('new search input')
     expect(inputEle.props('modelValue')).toBe('new search input')
   })
+
+  it('reset search input', async () => {
+    await inputEle.setValue('new search input')
+    await resetBtn.trigger('click')
+    expect(inputEle.props('modelValue')).toBe('')
+  })
 })
