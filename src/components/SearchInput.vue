@@ -3,10 +3,12 @@ import { ElInput, ElButton } from 'element-plus'
 defineOptions({
   inheritAttrs: false,
 })
+
+const model = defineModel()
 </script>
 <template>
   <div class="search-input-container">
-    <ElInput v-bind="$attrs" placeholder="Enter something" class="input" />
+    <ElInput v-bind="$attrs" placeholder="Enter something" class="input" v-model="model" />
     <ElButton type="primary" class="search" size="default">Search</ElButton>
     <ElButton type="primary" class="reset" size="default">Reset</ElButton>
   </div>

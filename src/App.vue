@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import ColorPicker from '@/components/ColorPicker.vue'
 import SearchInput from '@/components/SearchInput.vue'
 
-const inputValue = ref('search input test')
+const inputValue = ref('')
 </script>
 
 <template>
