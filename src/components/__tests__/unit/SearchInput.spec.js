@@ -44,4 +44,13 @@ describe('Search Input', () => {
     await resetBtn.trigger('click')
     expect(inputEle.props('modelValue')).toBe('')
   })
+
+  it('click search button', async () => {
+    await inputEle.setValue('new search input')
+    await searchBtn.trigger('click')
+    const searchEvent = searchInputComp.emitted('search')
+    expect(searchEvent).toBeTruthy()
+    expect(searchEvent?.length).toBe(1)
+    expect(searchEvent[0][0]).toBe('new search input')
+  })
 })
