@@ -9,7 +9,7 @@ let searchBtn = null
 let resetBtn = null
 
 beforeEach(() => {
-  searchInputComp = mount(SearchInput, {
+  searchInputComp = shallowMount(SearchInput, {
     props: { modelValue: 'search input test' },
     'onUpdate:modelValue': (value) => {
       searchInputComp.setProps({ modelValue: value })
