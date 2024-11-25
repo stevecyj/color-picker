@@ -26,4 +26,9 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    host: '0.0.0.0', // 監聽所有地址
+    port: 5173, // 可以根據需要更改端口
+    open: true, // 自動在瀏覽器中打開
+  },
 })
