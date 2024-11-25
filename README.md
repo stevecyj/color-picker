@@ -6,6 +6,12 @@
 Node: v22.11.0
 ```
 
+## get local ip address
+
+```sh
+ifconfig en0 | grep inet
+```
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
